@@ -1,0 +1,15 @@
+# Open AI / ChatGPT
+proxy-groups:
+-
+  name: ChatGPT
+  type: select
+  proxies:
+    - 美国ᴜs解ChatGPT¹‧⁵A
+    - 美国ᴜs解ChatGPT¹‧⁵B
+    - 台湾ᴛᴡ解ChatGPT¹‧⁵A
+    - 台湾ᴛᴡ解ChatGPT¹‧⁵B
+    - 台湾ᴛᴡ解ChatGPT¹‧⁵C
+    - 台湾ᴛᴡ解ChatGPT¹‧⁵D
+
+rules:
+- DOMAIN-SUFFIX,openai.com,ChatGPT
