@@ -6,7 +6,7 @@
 Directly use this repo, do:
 
 ```shell
-git clone https://github.com/Corgile/clash.git ClashProxy
+git clone https://github.com/Corgile/Clash-for-Linux.git ClashProxy
 cd ClashProxy
 ```
 
