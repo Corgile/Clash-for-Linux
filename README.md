@@ -62,3 +62,8 @@ sudo systemctl start clash.service
 ```
 
 And do `systemctl restart clash` after any modifications on `config.yaml`
+
+
+## disclaimer
+
+The `clash` binary file in this repository was download from ~[clash](https://github.com/Dreamacro/clash)~ (deleted), and this repository is only a backup of my personal tool. **I am not the maintainer of clash, and I am not responsible for any damage to your computer caused by the clash file in this repository**.
