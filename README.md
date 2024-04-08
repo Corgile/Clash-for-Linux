@@ -1,7 +1,7 @@
 # Clash for Linux
 
 
-## Manual for Ubuntu (amd64)
+## Manual for amd64
 
 Directly use this repo, do:
 
@@ -19,7 +19,7 @@ external-ui: /path/to/ClashProxy/ui/
 Startup clash
 
 
-```shell
+```sh
 sudo ./clash -d .
 ```
 
@@ -28,24 +28,35 @@ Setting up system proxy (omitted).  Visit 127.0.0.1:3684/ui
 
 ## Optional
 
-If you want a newer version Dashboard:
+Manage clash as a linux service:
 
 ```shell
-git submodule init
-git submodule update
-cd clash-dashboard
-
-# pull latest repo
-git pull origin master
-
-# install dependencies and build
-npm i
-npm run build  # may need npm install vite -g -S  first
+sudo vim /etc/systemd/system/clash.service
 ```
 
-Restart Clash.
+Content of clash.service: 
 
-## Other
+```text
+[Unit]
+Description=Clash Proxy Service
+After=network.target
 
-visit https://github.com/Dreamacro/clash/releases for a different arch clash binary.
+[Service]
+Type=forking
+User=你的用户名
+WorkingDirectory=/path/to/ClashProxy
+ExecStart=/usr/bin/tmux new-session -d -s clash '/usr/bin/sudo /path/to/ClashProxy/clash -d .'
+ExecStop=/usr/bin/tmux kill-session -t clash
+Restart=always
 
+[Install]
+WantedBy=multi-user.target
+```
+
+start clash。service on StartUp
+
+```shell
+sudo systemctl daemon-reload
+sudo systemctl enable clash.service
+sudo systemctl start clash.service
+```
