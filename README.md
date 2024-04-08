@@ -28,13 +28,13 @@ Setting up system proxy (omitted).  Visit 127.0.0.1:3684/ui
 
 ## Optional
 
-Manage clash as a linux service:
+Manage clash as a linux service: 
 
 ```shell
 sudo vim /etc/systemd/system/clash.service
 ```
 
-Content of clash.service: 
+**It is recommended for `clash` running as a backstage process in `tmux` session, which we will have an easy access to its console/logs by `tmux at -t clash`**. Content of clash.service: 
 
 ```text
 [Unit]
@@ -53,10 +53,12 @@ Restart=always
 WantedBy=multi-user.target
 ```
 
-start clash。service on StartUp
+start clash.service on StartUp
 
 ```shell
 sudo systemctl daemon-reload
 sudo systemctl enable clash.service
 sudo systemctl start clash.service
 ```
+
+And do `systemctl restart clash` after any modifications on `config.yaml`
